@@ -9,6 +9,13 @@ var swig = require('swig');
 require("dotenv").load();
 
 
+// *** database *** //
+require("../database");
+// *** seed database *** //
+var databaseSeed = require("../seed");
+databaseSeed();
+
+
 // *** routes *** //
 var routes = require('./routes/index.js');
 var api = require('./routes/api');

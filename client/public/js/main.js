@@ -6,6 +6,7 @@ $(document).on('ready', function() {
 
   $("#restrauntForm").on("click", function(e){
     e.preventDefault();
-    console.log("hello");
+  $("#edit-form").show();
+
   });
 });

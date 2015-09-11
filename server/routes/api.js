@@ -17,23 +17,24 @@ router.post('/restraunts', function(req, res, next) {
     res.send(restraunts);
   });
 });
+router.get('/restraunts/:id', function(req, res, next) {
+  Restraunt.findBy(req.params.id, function(err, restraunt){
+    res.json(restraunt);
+  });
+});
 router.put('/restraunts/:id', function(req, res, next) {
-  var query = {"_id":req.params.id};
   var update = req.body;
   var options = {"new": true};
-  Restraunt.findOneAndUpdate(query,update,options, function(err, restraunt){
+  Restraunt.findByIdAndUpdate(req.params.id,update,options, function(err, restraunt){
     res.json(restraunt);
   });
 });
 router.delete('/restraunts/:id', function(req, res, next) {
-  var query = {"_id":req.params.id};
-  // var options = {"new": true};
-  Restraunt.findOneAndRemove(query, function(err, restraunt){
+  var options = {"new": true};
+  Restraunt.findByIdAndRemove(req.params.id, function(err, restraunt){
     res.json(restraunt);
   });
 });
-router.get('/restraunts/:id', function(req, res, next) {
-  res.json();
-});
+
 
 module.exports = router;

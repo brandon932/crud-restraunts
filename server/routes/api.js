@@ -18,7 +18,7 @@ router.post('/restraunts', function(req, res, next) {
   });
 });
 router.get('/restraunts/:id', function(req, res, next) {
-  Restraunt.findBy(req.params.id, function(err, restraunt){
+  Restraunt.findById(req.params.id, function(err, restraunt){
     res.json(restraunt);
   });
 });
